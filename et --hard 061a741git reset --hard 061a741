@@ -1,0 +1,36 @@
+[33mc786690[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: pull: Fast-forward
+[33m061a741[m HEAD@{1}: commit: feat: add global notification system with toast alerts and notification badge
+[33m652468f[m HEAD@{2}: commit: improved UI of wearables
+[33mb703af3[m HEAD@{3}: pull: Fast-forward
+[33m511606e[m HEAD@{4}: commit: basic change
+[33m1d49043[m HEAD@{5}: pull: Merge made by the 'ort' strategy.
+[33m250b63b[m HEAD@{6}: commit: added alerts
+[33m2e08200[m HEAD@{7}: rebase (finish): returning to refs/heads/main
+[33m2e08200[m HEAD@{8}: rebase (continue): basic changes
+[33m34eab9f[m HEAD@{9}: rebase (continue): changes in files
+[33mb88a3ef[m HEAD@{10}: pull origin main --rebase (start): checkout b88a3ef788b7c154f5a5b83f4ca52df557d418ee
+[33m13afc89[m HEAD@{11}: commit: basic changes
+[33m35beb71[m HEAD@{12}: commit: what if changes
+[33m72b8709[m HEAD@{13}: commit: changes in files
+[33m34dfef4[m HEAD@{14}: pull origin main --rebase (finish): returning to refs/heads/main
+[33m34dfef4[m HEAD@{15}: pull origin main --rebase (pick): changes in offline packs and app routes
+[33meb03e46[m HEAD@{16}: pull origin main --rebase (start): checkout eb03e463c69954db1ee71ccff5d49b085d3adeb2
+[33m5636fc5[m HEAD@{17}: commit: changes in offline packs and app routes
+[33m62188bb[m HEAD@{18}: rebase (finish): returning to refs/heads/main
+[33m62188bb[m HEAD@{19}: rebase (pick): Update OfflinePacks component
+[33mccae4e2[m HEAD@{20}: rebase (continue): added sidebar,notifiaction,id etc
+[33mfc78e16[m HEAD@{21}: pull origin main --rebase (start): checkout fc78e16a71bbabcc096754fa851bdfc7a49f76cd
+[33m5beb4e4[m HEAD@{22}: commit: Update OfflinePacks component
+[33ma72ac14[m HEAD@{23}: commit: added sidebar,notifiaction,id etc
+[33md0bd9c8[m HEAD@{24}: commit: basic push
+[33m4b93a3a[m HEAD@{25}: commit: minor changes
+[33mfe47649[m HEAD@{26}: commit (merge): severity report
+[33m8f0b4e9[m HEAD@{27}: commit: Update backend dependencies and configs
+[33m9ea265e[m HEAD@{28}: pull: Fast-forward
+[33mddd7ca4[m[33m ([m[1;32mjayam[m[33m)[m HEAD@{29}: checkout: moving from jayam to main
+[33mddd7ca4[m[33m ([m[1;32mjayam[m[33m)[m HEAD@{30}: checkout: moving from main to jayam
+[33mddd7ca4[m[33m ([m[1;32mjayam[m[33m)[m HEAD@{31}: commit: Add PhantomMap 3D floorplan detection with wall extraction and marker system
+[33m42d3996[m HEAD@{32}: pull: Fast-forward
+[33m49beb22[m HEAD@{33}: commit: basics
+[33mfac15fe[m HEAD@{34}: Branch: renamed refs/heads/master to refs/heads/main
+[33mfac15fe[m HEAD@{36}: commit (initial): first commit

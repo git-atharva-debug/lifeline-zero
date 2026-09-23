@@ -376,7 +376,7 @@ export default function Register() {
         setError(response.message || 'Registration failed');
       }
     } catch (err) {
-      setError('System error. Please try again.');
+      setError(err.message || 'System error. Please try again.');
     } finally {
       setLoading(false);
     }

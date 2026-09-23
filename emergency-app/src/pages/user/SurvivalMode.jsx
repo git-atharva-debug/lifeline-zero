@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import AcousticSentinel from '../../components/user/AcousticSentinel';
 
-// ─── Groq AI (ultra-fast inference) ──────────────────────────────────────────
 async function askGroqAI(question, situation) {
   const API_KEY = process.env.REACT_APP_GROQ_API_KEY;
-  if (!API_KEY) return null;
+  console.log("SURVIVAL MODE: API_KEY present?", !!API_KEY);
+  if (!API_KEY) return "DEBUG: API Key is missing from process.env";
 
   try {
     const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -13,7 +14,7 @@ async function askGroqAI(question, situation) {
         'Authorization': `Bearer ${API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
+        model: 'openai/gpt-oss-20b',
         max_tokens: 300,
         temperature: 0.3,
         messages: [
@@ -26,12 +27,16 @@ async function askGroqAI(question, situation) {
       }),
     });
 
-    if (!res.ok) return null;
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("Groq API Error Response:", errText);
+      return `DEBUG: API Error - ${res.status}`;
+    }
     const data = await res.json();
     return data.choices?.[0]?.message?.content?.trim() || null;
   } catch (e) {
-    console.error('Groq Error:', e);
-    return null;
+    console.error('Groq Fetch Error:', e);
+    return `DEBUG: Network/Fetch Error - ${e.message}`;
   }
 }
 
@@ -375,6 +380,13 @@ export default function SurvivalMode() {
   const [disaster,       setDisaster]       = useState('Flood');
   const [activeStep,     setActiveStep]     = useState(null);
   const [preDisasterMode, setPreDisasterMode] = useState(false);
+  const [sosTriggered, setSosTriggered] = useState(false);
+
+  const handleAcousticSos = (word) => {
+    setSosTriggered(word);
+    // In a real scenario, this would send an SOS via API or SonicLink
+    console.log("ACOUSTIC SOS TRIGGERED:", word);
+  };
 
   // Apply grayscale when survival mode is active
   useGrayscale(survivalActive);
@@ -644,6 +656,20 @@ export default function SurvivalMode() {
 
       {/* AI Assistant - renamed to Emergency Assistant */}
       <GroqPanel situation={disaster} animationsOff={survivalActive} survivalMode={survivalActive} />
+
+      {/* Offline Acoustic Machine Learning Sentinel */}
+      {survivalActive && (
+          <AcousticSentinel onSosTrigger={handleAcousticSos} />
+      )}
+
+      {sosTriggered && (
+          <div style={{
+            background: '#fee2e2', color: '#dc2626', padding: '1rem', 
+            borderRadius: '8px', marginTop: '1rem', fontWeight: 600, border: '1px solid #f87171'
+          }}>
+            🚨 CRITICAL: Acoustic Anomaly Detected ("{sosTriggered}"). Auto-dispatching offline SOS via SonicLink...
+          </div>
+      )}
 
       {/* Emergency Contacts with Icons and Hover Effects */}
       <div style={{

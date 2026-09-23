@@ -55,6 +55,7 @@ app.use("/api/sos", require("./routes/sosRoutes"));
 app.use("/api/emergency-fund", emergencyFundRoutes);
 
 app.use("/api/resources", require("./routes/resourceRoutes"));
+app.use("/api/ml", require("./routes/mlRoutes"));
 
 // Health
 app.get("/health", (req, res) => {

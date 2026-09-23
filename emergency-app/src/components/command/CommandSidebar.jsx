@@ -11,6 +11,8 @@ const links = [
   // { to: '/command/ai', label: '🤖 AI Recommendations' },
   { to: '/command/incidents', label: '🎯 Incident Control' },
   { to: '/command/command-fund', label: '💼 Emergency Fund' },
+  { to: '/command/analytics', label: '📊 Live Analytics' },
+  { to: '/command/hotspots', label: '🔥 ML Hotspot Prediction' },
 ];
 
 export default function CommandSidebar() {

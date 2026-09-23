@@ -36,6 +36,8 @@ import IncidentControl from '../pages/command/IncidentControl';
 import AdminRescueDashboard from '../pages/command/AdminRescueDashboard';
 import CommandBottleneck from '../components/bottleneck/CommandBottleneck'; // Keep your extra import
 import CommandEmergencyFund from "../pages/command/CommandEmergencyFund";
+import LiveAnalytics from '../pages/command/LiveAnalytics';
+import MLHotspots from '../pages/command/MLHotspots';
 function UserLayout({ children }) {
   return (
     <div style={{ display: 'flex' }}>
@@ -77,7 +79,7 @@ export default function AppRoutes() {
                     <Route path="dashboard" element={<UserDashboard />} />
                     <Route path="survival" element={<SurvivalMode />} />
                     <Route path="whatif" element={<WhatIf />} />
-                    {/* <Route path="sonic" element={<SonicLink />} /> */}
+                    <Route path="sonic" element={<SonicLink />} />
                     <Route path="preparedness" element={<PreparednessScore />} />
                     <Route path="offline" element={<OfflinePacks />} />
                     <Route path="wearable" element={<WearableID />} />
@@ -112,6 +114,8 @@ export default function AppRoutes() {
                     <Route path="sos" element={<AdminRescueDashboard />} />
                     <Route path="command-fund" element={<CommandEmergencyFund />} />
                     <Route path="bottleneck" element={<CommandBottleneck />} /> {/* Your extra route */}
+                    <Route path="analytics" element={<LiveAnalytics />} />
+                    <Route path="hotspots" element={<MLHotspots />} />
                   </Routes>
                 </CommandLayout>
               </AlertProvider>

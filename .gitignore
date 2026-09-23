@@ -141,4 +141,11 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# ML Service Large Files
+ml_service/*.npy
+ml_service/data/*.csv
+ml_service/data/*.json
+ml_service/*.pkl
+ml_service/*.pth
+
 # End of https://www.toptal.com/developers/gitignore/api/node

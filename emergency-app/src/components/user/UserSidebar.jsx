@@ -10,7 +10,7 @@ const links = [
   { to: '/user/preparedness', label: '🎯 Risk & Readiness Engine' },
   { to: '/user/whatif', label: '🔮 What-If Scenarios' },
   // { to: '/user/bottleneck', label: '🚗 Evacuation Route Advisor' },
-  // { to: '/user/sonic', label: '🔊 Sonic Link' },
+  { to: '/user/sonic', label: '🔊 Sonic Link' },
   { to: '/user/offline', label: '📦 Offline Packs' },
   { to: '/user/wearable', label: '💳 Wearable ID' },
   { to: '/user/mapping', label: '🗺️ Phantom Map' },

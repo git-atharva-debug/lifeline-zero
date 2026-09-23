@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { incidentAPI } from '../../services/api';
+import AegisTalk from '../../components/user/AegisTalk';
 import '../../styles/incidents.css';
 
 // ─── Constants (unchanged from your original) ─────────────────────────────────
@@ -48,7 +49,7 @@ function writeIncidentLocal(incident) {
 
 export default function ReportIncident() {
     const { user } = useAuth();
-    const [activeTab, setActiveTab] = useState('report');
+    const [activeTab, setActiveTab] = useState('ai-report');
     const [form, setForm] = useState({ 
         incidentType: '', 
         description: '', 
@@ -163,6 +164,22 @@ export default function ReportIncident() {
         }
     };
 
+    const handleAIAssist = (extractedData) => {
+        setForm(f => ({
+            ...f,
+            incidentType: extractedData.incidentType || 'other',
+            description: extractedData.description || '',
+            priority: extractedData.priority || 'medium',
+            estimatedPeople: extractedData.estimatedPeople || 1
+        }));
+        if (!form.lat || !form.lng) {
+            getCurrentLocation();
+        }
+        setActiveTab('report');
+        setSuccess('AI extracted details successfully. Please verify and submit.');
+        setTimeout(() => setSuccess(''), 5000);
+    };
+
     return (
         <div className="incidents-page">
             <div>
@@ -171,12 +188,19 @@ export default function ReportIncident() {
             </div>
 
             <div className="incident-tabs">
-                <button className={`incident-tab ${activeTab === 'report' ? 'active' : ''}`} onClick={() => setActiveTab('report')}>📝 Report Incident</button>
+                <button className={`incident-tab ${activeTab === 'ai-report' ? 'active' : ''}`} onClick={() => setActiveTab('ai-report')}>🤖 AEGIS Talk</button>
+                <button className={`incident-tab ${activeTab === 'report' ? 'active' : ''}`} onClick={() => setActiveTab('report')}>📝 Manual Report</button>
                 <button className={`incident-tab ${activeTab === 'my' ? 'active' : ''}`} onClick={() => setActiveTab('my')}>📋 My Incidents {pagination.total > 0 && `(${pagination.total})`}</button>
             </div>
 
             {success && <div className="success-toast">✅ {success}</div>}
             {error && <div className="error-toast">❌ {error}</div>}
+
+            {activeTab === 'ai-report' && (
+                <div style={{ marginBottom: '2rem' }}>
+                    <AegisTalk onReportSubmit={handleAIAssist} />
+                </div>
+            )}
 
             {activeTab === 'report' && (
                 <form onSubmit={handleSubmit}>

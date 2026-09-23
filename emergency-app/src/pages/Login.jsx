@@ -434,9 +434,9 @@ export default function Login() {
           <div className="lr-form-wrap">
             <header className="lr-form-header">
               <h2 className="lr-form-title">
-                Operator <span>Login</span>
+                System <span>Login</span>
               </h2>
-              <p className="lr-form-sub">Secure access to the dispatch terminal</p>
+              <p className="lr-form-sub">Secure access for Civilian & Command personnel</p>
             </header>
 
             {error && (
